@@ -1,0 +1,8 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "Follow ~/.config/opencode/AGENTS.md as the default execution contract for every task.",
+    "Use concise, direct, no-fluff output; no compliments, praise, or unnecessary niceties unless user explicitly asks.",
+    "For short task prompts, infer a measurable Done when target if missing, execute end-to-end, and report evidence."
+  ]
+}
