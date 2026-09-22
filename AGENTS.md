@@ -8,10 +8,14 @@ These instructions apply to all sessions unless project-specific instructions ov
 - Prefer actionable answers over long explanations.
 - Ask clarifying questions only when needed to avoid wrong work.
 - Clearly list changed files when making edits.
-- When adding or upgrading a dependency, first check the package registry for the latest stable version (for npm, use `npm view <package> version`) and use that version unless otherwise specified.
+
+## Dependencies
+
+- When adding or upgrading a dependency, first check the package registry for the latest stable version (for npm, use `npm view <package> version`) and install that version with a caret (`^`) range to allow minor and patch updates, unless otherwise specified.
 - Do not choose an older baseline version and rely on a semver range to resolve to the latest version. The dependency declaration itself must reflect the latest version selected.
 - If the user specifies a version, range, major/minor line, or compatibility constraint, follow that specification instead of selecting the latest version.
 - If intending to downgrade any dependencies, explain why and ask for confirmation first.
+- When upgrading Node version, upgrade to Node v26. Upgrade the types package, engine in the package.json file, CI files (Docker/Jenkins/GH workflows). If using buster or bullseye, replace with bookworm, do not replace other node image versions.
 
 ## Coding Workflow
 
@@ -20,7 +24,6 @@ These instructions apply to all sessions unless project-specific instructions ov
 - Preserve existing project style, naming, and conventions.
 - Prefer simple, maintainable solutions over clever ones.
 - Run relevant checks or tests after code changes when practical.
-- When upgrading Node version, upgrade to Node v26. Upgrade the types package, engine in the package.json file, CI files (Docker/Jenkins/GH workflows). If using buster or bullseye, replace with bookworm, do not replace other node image versions.
 
 ## File Size and Refactoring
 
