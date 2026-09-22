@@ -8,6 +8,9 @@ These instructions apply to all sessions unless project-specific instructions ov
 - Prefer actionable answers over long explanations.
 - Ask clarifying questions only when needed to avoid wrong work.
 - Clearly list changed files when making edits.
+- When adding or upgrading a dependency, first check the package registry for the latest stable version (for npm, use `npm view <package> version`) and use that version unless otherwise specified.
+- Do not choose an older baseline version and rely on a semver range to resolve to the latest version. The dependency declaration itself must reflect the latest version selected.
+- If the user specifies a version, range, major/minor line, or compatibility constraint, follow that specification instead of selecting the latest version.
 - If intending to downgrade any dependencies, explain why and ask for confirmation first.
 
 ## Coding Workflow
@@ -17,6 +20,7 @@ These instructions apply to all sessions unless project-specific instructions ov
 - Preserve existing project style, naming, and conventions.
 - Prefer simple, maintainable solutions over clever ones.
 - Run relevant checks or tests after code changes when practical.
+- When upgrading Node version, upgrade to Node v26. Upgrade the types package, engine in the package.json file, CI files (Docker/Jenkins/GH workflows). If using buster or bullseye, replace with bookworm, do not replace other node image versions.
 
 ## File Size and Refactoring
 
@@ -30,10 +34,10 @@ These instructions apply to all sessions unless project-specific instructions ov
 
 - Do not add utility/helper functions in `.tsx` files that render JSX.
 - JSX files should only contain:
-    - imports
-    - types/interfaces for props
-    - the component(s) themselves
-    - minimal constants directly tied to rendering
+  - imports
+  - types/interfaces for props
+  - the component(s) themselves
+  - minimal constants directly tied to rendering
 - Any non-trivial logic must be extracted to separate function files or shared util files based on context.
 - If new helper logic is needed while editing a JSX file, create/update a separate module and import it.
 - Treat this as mandatory, not preference.
